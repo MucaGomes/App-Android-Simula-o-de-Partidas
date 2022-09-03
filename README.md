@@ -1,1 +1,1 @@
-# App-Android-Simula-o-de-Partidas
+# App Android Simulador de Partidas
