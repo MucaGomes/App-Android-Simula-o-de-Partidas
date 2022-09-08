@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoDio">
         <activity
-            android:name=".DetailActivity"
+            android:name=".Screens.DetailActivity"
             android:theme="@style/Theme.Simulator.NoActionBar"
             android:exported="true" >
 
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Screens.MainActivity"
             android:exported="true">
 
             <intent-filter>

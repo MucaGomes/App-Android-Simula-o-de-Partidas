@@ -1,4 +1,4 @@
-package com.example.projetodio;
+package com.example.projetodio.Screens;
 
 import android.os.Bundle;
 
@@ -17,5 +17,24 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        setupMatchesList();
+        setupMatchesRefresh();
+        setupFloaingActionButton();
     }
+
+    private void setupFloaingActionButton() {
+        // create click events and match simulation
+    }
+
+    private void setupMatchesRefresh() {
+        // updating matches with a swipe action
+    }
+
+    private void setupMatchesList() {
+        // listing the matches consuming the API
+
+    }
+
+
 }
