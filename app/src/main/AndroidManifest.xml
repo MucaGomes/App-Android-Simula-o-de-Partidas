@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.projetodio">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoDio">
         <activity
-            android:name=".Screens.DetailActivity"
+            android:name=".screens.DetailActivity"
             android:theme="@style/Theme.Simulator.NoActionBar"
             android:exported="true" >
 
         </activity>
         <activity
-            android:name=".Screens.MainActivity"
+            android:name=".screens.MainActivity"
             android:exported="true">
 
             <intent-filter>

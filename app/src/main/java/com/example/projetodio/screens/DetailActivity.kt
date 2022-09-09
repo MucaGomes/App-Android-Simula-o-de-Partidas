@@ -1,4 +1,4 @@
-package com.example.projetodio.Screens
+package com.example.projetodio.screens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
