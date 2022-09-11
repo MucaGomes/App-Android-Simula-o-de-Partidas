@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +19,7 @@ import com.example.projetodio.screens.adapter.MatchesAdapter;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private API matchesApi;
-    private RecyclerView.Adapter matchesAdapter;
+    private MatchesAdapter matchesAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,10 +59,11 @@ public class MainActivity extends AppCompatActivity {
     private void setupMatchesList() {
         binding.rvlMatches.setHasFixedSize(true);
         binding.rvlMatches.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvlMatches.setAdapter(matchesAdapter);
+        findMatchesFromApi();
 
 
     }
-
 
     private void setupMatchesRefresh() {
         // updating matches with a swipe action
@@ -75,12 +78,19 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     //TOO Implementar algoritimo de simulação de partidas.
+                    Random random = new Random();
+                    for (int i = 0; i < matchesAdapter.getItemCount(); i++) {
+                        Match match = matchesAdapter.getMatches().get(i);
+                        // Pegamos a força do time(stars) e faremos um algoritimo para mostrar a porcentagem de chances do time ganhar
+                        match.getHomeTeam().setScore(random.nextInt(match.getHomeTeam().getStar() + 1));
+                        match.getAwayTeam().setScore(random.nextInt(match.getAwayTeam().getStar() + 1));
+                        // Notificamos o adapter que mudamos algo dentro da nossa aplicação e mostra para o usuario
+                        matchesAdapter.notifyItemChanged(i);
+                    }
                 }
             });
 
         });
-
-
     }
 
     private void findMatchesFromApi() {
@@ -88,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         matchesApi.getMatches().enqueue(new Callback<List<Match>>() {
 
             @Override
-            public void onResponse(Call<List<Match>> call, Response<List<Match>> response) {
+            public void onResponse(@NonNull Call<List<Match>> call,@NonNull Response<List<Match>> response) {
                 if (response.isSuccessful()) {
                     List<Match> matches = response.body();
                     matchesAdapter = new MatchesAdapter(matches);

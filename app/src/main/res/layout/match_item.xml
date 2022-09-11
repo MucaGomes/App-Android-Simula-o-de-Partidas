@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:layout_margin="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageHomeTeam"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -19,10 +19,9 @@
             android:contentDescription="Imagem do time mandandte"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="HardcodedText"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textHomeTeamName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +31,7 @@
             app:layout_constraintStart_toStartOf="@+id/imageHomeTeam"
             app:layout_constraintTop_toBottomOf="@+id/imageHomeTeam" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textHomeTeamScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +42,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageHomeTeam"
             app:layout_constraintTop_toTopOf="@+id/imageHomeTeam" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textVs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +52,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageHomeTeam" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageAwayTeam"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -63,7 +62,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textAwayTeamName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +72,7 @@
             app:layout_constraintStart_toStartOf="@+id/imageAwayTeam"
             app:layout_constraintTop_toBottomOf="@+id/imageAwayTeam" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textAwayTeamScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -20,6 +20,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvlMatches"
             android:layout_width="match_parent"
+            tools:itemCount="3"
             android:layout_height="match_parent"
             tools:listitem="@layout/match_item"/>
 
